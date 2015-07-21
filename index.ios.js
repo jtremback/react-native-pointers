@@ -10,11 +10,20 @@ var {
   StyleSheet,
   Text,
   View,
-  NativeModules
+  NativeModules: { ModuleA, ModuleB }
 } = React;
 
 var pointersTest = React.createClass({
-  render: function() {
+  tryPointers () {
+    ModuleA.send((err, pointer) => {
+      ModuleB.receive(pointer, (err, size) => {
+        console.log(err, size)
+      })
+    })
+  },
+
+  render () {
+    this.tryPointers()
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>

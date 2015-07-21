@@ -16,13 +16,15 @@
 }
 
 - (void)resolvePointer:(NSString*)pointer usingBlock:(void (^)(id value))usingBlock {
-  [[NSNotificationCenter defaultCenter] postNotificationName:@"RCTPointersRequest" object:self userInfo:@{ @"pointer": pointer }];
   
   NSObject *observer = [[NSNotificationCenter defaultCenter] addObserverForName:pointer object:nil queue:nil usingBlock:^(NSNotification *note) {
     NSObject *value = [note.object getPointerValue:pointer];
     usingBlock(value);
     [[NSNotificationCenter defaultCenter] removeObserver:observer name:pointer object:nil];
   }];
+  
+  // This must come after the addition of the observer
+  [[NSNotificationCenter defaultCenter] postNotificationName:@"RCTPointersRequest" object:self userInfo:@{ @"pointer": pointer }];
 }
 
 - (NSString*)createPointer:(NSObject*)value {
