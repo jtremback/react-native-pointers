@@ -12,8 +12,8 @@
 
 @property(strong) NSMutableDictionary *RCTPointersDict;
 
-- (void)resolvePointer:(NSString*)pointer usingBlock:(void (^)(NSObject*))usingBlock;
-- (NSString*)createPointer:(NSObject*)value;
+//- (void)resolvePointer:(NSString*)pointer usingBlock:(void (^)(NSObject*))usingBlock;
+//- (NSString*)createPointer:(NSObject*)value;
 
 @end
 
@@ -32,7 +32,7 @@
   [[NSNotificationCenter defaultCenter] postNotificationName:pointer object:self];
 }
 
-- (void)resolvePointer:(NSString*)pointer usingBlock:(void (^)(NSObject*))usingBlock {
+- (void)resolvePointer:(NSString*)pointer usingBlock:(void (^)(id value))usingBlock {
   [[NSNotificationCenter defaultCenter] postNotificationName:@"RCTPointersRequest" object:self userInfo:@{ @"pointer": pointer }];
   
   NSObject *observer = [[NSNotificationCenter defaultCenter] addObserverForName:pointer object:nil queue:nil usingBlock:^(NSNotification *note) {
