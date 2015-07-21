@@ -12,8 +12,8 @@
 
 @property(strong) NSMutableDictionary *RCTPointersDict;
 
-//- (void)resolvePointer:(NSString*)pointer usingBlock:(void (^)(NSObject*))usingBlock;
-//- (NSString*)createPointer:(NSObject*)value;
+- (void)resolvePointer:(NSString*)pointer usingBlock:(void (^)(id value))usingBlock;
+- (NSString*)createPointer:(NSObject*)value;
 
 @end
 
