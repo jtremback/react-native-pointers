@@ -21,7 +21,7 @@ RCT_EXPORT_MODULE();
 }
 
 RCT_EXPORT_METHOD(send:(RCTResponseSenderBlock)callback) {
-  CGSize size = CGSizeMake(720, 1280);
+  CGSize size = CGSizeMake(5000, 5000);
   UIGraphicsBeginImageContextWithOptions(size, YES, 0);
     [[UIColor whiteColor] setFill];
     UIRectFill(CGRectMake(0, 0, size.width, size.height));
@@ -29,7 +29,6 @@ RCT_EXPORT_METHOD(send:(RCTResponseSenderBlock)callback) {
   UIGraphicsEndImageContext();
   
   callback(@[[NSNull null], [self.RCTPointers createPointer:image]]);
-//    callback(@[[NSNull null], [self.RCTPointers createPointer:@"foo"]]);
 }
 
 @end

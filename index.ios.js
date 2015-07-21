@@ -8,6 +8,7 @@ var React = require('react-native');
 var {
   AppRegistry,
   StyleSheet,
+  TouchableHighlight,
   Text,
   View,
   NativeModules: { ModuleA, ModuleB }
@@ -23,19 +24,13 @@ var pointersTest = React.createClass({
   },
 
   render () {
-    this.tryPointers()
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
+        <TouchableHighlight onPress={this.tryPointers}>
+          <Text style={styles.instructions}>
+            Press here and check console for image dimensions.
+          </Text>
+        </TouchableHighlight>
       </View>
     );
   }
