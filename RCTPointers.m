@@ -1,21 +1,4 @@
-//
-//  RCTPointers.m
-//  pointersTest
-//
-//  Created by Jehan Tremback on 7/20/15.
-//  Copyright (c) 2015 Facebook. All rights reserved.
-//
-
-#import <Foundation/Foundation.h>
-
-@interface RCTPointers : NSObject
-
-@property(strong) NSMutableDictionary *RCTPointersDict;
-
-- (void)resolvePointer:(NSString*)pointer usingBlock:(void (^)(id value))usingBlock;
-- (NSString*)createPointer:(NSObject*)value;
-
-@end
+#import "RCTPointers.h"
 
 @implementation RCTPointers
 

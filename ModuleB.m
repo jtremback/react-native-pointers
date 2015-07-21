@@ -4,13 +4,9 @@
 #import <UIKit/UIKit.h>
 #import "RCTBridgeModule.h"
 #import "RCTLog.h"
-#import "RCTPointers.m"
+#import "RCTPointers.h"
 
-@interface ModuleB : NSObject <RCTBridgeModule>
-
-@property(strong) RCTPointers *RCTPointers;
-
-@end
+#import "ModuleB.h"
 
 @implementation ModuleB
 

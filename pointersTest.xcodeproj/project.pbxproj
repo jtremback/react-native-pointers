@@ -22,9 +22,9 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
-		458B47031B59CD4400B03A7E /* ModuleA.m in Sources */ = {isa = PBXBuildFile; fileRef = 458B47021B59CD4400B03A7E /* ModuleA.m */; };
 		458B47101B5AFE9100B03A7E /* ModuleB.m in Sources */ = {isa = PBXBuildFile; fileRef = 458B470F1B5AFE9100B03A7E /* ModuleB.m */; };
 		458F0FE11B5D9F6600DB8DD2 /* RCTPointers.m in Sources */ = {isa = PBXBuildFile; fileRef = 458F0FE01B5D9F6600DB8DD2 /* RCTPointers.m */; };
+		458F10001B5DEFA400DB8DD2 /* ModuleA.m in Sources */ = {isa = PBXBuildFile; fileRef = 458F0FFF1B5DEFA400DB8DD2 /* ModuleA.m */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 /* End PBXBuildFile section */
 
@@ -128,9 +128,12 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = iOS/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = iOS/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
-		458B47021B59CD4400B03A7E /* ModuleA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModuleA.m; sourceTree = "<group>"; };
 		458B470F1B5AFE9100B03A7E /* ModuleB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModuleB.m; sourceTree = "<group>"; };
 		458F0FE01B5D9F6600DB8DD2 /* RCTPointers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTPointers.m; sourceTree = "<group>"; };
+		458F0FFE1B5DEF0F00DB8DD2 /* RCTPointers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTPointers.h; sourceTree = "<group>"; };
+		458F0FFF1B5DEFA400DB8DD2 /* ModuleA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModuleA.m; sourceTree = "<group>"; };
+		458F10011B5DF0BB00DB8DD2 /* ModuleA.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModuleA.h; sourceTree = "<group>"; };
+		458F10021B5DF0CB00DB8DD2 /* ModuleB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModuleB.h; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -246,8 +249,11 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
-				458B47021B59CD4400B03A7E /* ModuleA.m */,
+				458F10011B5DF0BB00DB8DD2 /* ModuleA.h */,
+				458F0FFF1B5DEFA400DB8DD2 /* ModuleA.m */,
+				458F10021B5DF0CB00DB8DD2 /* ModuleB.h */,
 				458B470F1B5AFE9100B03A7E /* ModuleB.m */,
+				458F0FFE1B5DEF0F00DB8DD2 /* RCTPointers.h */,
 				458F0FE01B5D9F6600DB8DD2 /* RCTPointers.m */,
 			);
 			name = pointersTest;
@@ -536,10 +542,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				458B47101B5AFE9100B03A7E /* ModuleB.m in Sources */,
-				458B47031B59CD4400B03A7E /* ModuleA.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				458F0FE11B5D9F6600DB8DD2 /* RCTPointers.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				458F10001B5DEFA400DB8DD2 /* ModuleA.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

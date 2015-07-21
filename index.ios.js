@@ -10,6 +10,7 @@ var {
   StyleSheet,
   Text,
   View,
+  NativeModules
 } = React;
 
 var pointersTest = React.createClass({
