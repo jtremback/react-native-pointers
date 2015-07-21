@@ -21,9 +21,9 @@ RCT_EXPORT_MODULE();
 }
 
 RCT_EXPORT_METHOD(receive:(NSString *)imagePointer callback:(RCTResponseSenderBlock)callback) {
-  [self.RCTPointers resolvePointer:imagePointer usingBlock:^(NSString *string) {
-//    CGSize size = image.size;
-    callback(@[[NSNull null], string]);
+  [self.RCTPointers resolvePointer:imagePointer usingBlock:^(UIImage *image) {
+    CGSize size = image.size;
+    callback(@[[NSNull null], NSStringFromCGSize(size)]);
   }];
 }
 

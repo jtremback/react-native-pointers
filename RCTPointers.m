@@ -47,13 +47,6 @@
   return data;
 }
 
-//- (NSObject*)getPointerValue:(NSString*)pointer usingBlock:(void (^)(NSObject *value))usingBlock {
-//  NSObject *data = [self.RCTPointersDict objectForKey:pointer];
-//  usingBlock(data)
-//  [self.RCTPointersDict removeObjectForKey:pointer];
-////  return data;
-//}
-
 - (void)dealloc {
   [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
