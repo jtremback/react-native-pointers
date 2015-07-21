@@ -5,6 +5,8 @@
 - (id)init {
   if ((self = [super init])) {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:(@selector(onPointerRequest:)) name:@"RCTPointersRequest" object:nil];
+    
+    self.RCTPointersDict = [[NSMutableDictionary alloc] init];
   }
   NSLog(@"The code runs through here!");
   return self;
@@ -12,15 +14,17 @@
 
 - (void)onPointerRequest:(NSNotification*)note {
   NSString *pointer = [note.userInfo objectForKey:@"pointer"];
-  [[NSNotificationCenter defaultCenter] postNotificationName:pointer object:self];
+  if ([self.RCTPointersDict objectForKey:pointer]) {
+    [[NSNotificationCenter defaultCenter] postNotificationName:pointer object:self];
+  }
 }
 
 - (void)resolvePointer:(NSString*)pointer usingBlock:(void (^)(id value))usingBlock {
   
   NSObject *observer = [[NSNotificationCenter defaultCenter] addObserverForName:pointer object:nil queue:nil usingBlock:^(NSNotification *note) {
+    [[NSNotificationCenter defaultCenter] removeObserver:observer name:pointer object:nil];
     NSObject *value = [note.object getPointerValue:pointer];
     usingBlock(value);
-    [[NSNotificationCenter defaultCenter] removeObserver:observer name:pointer object:nil];
   }];
   
   // This must come after the addition of the observer
@@ -42,6 +46,13 @@
   [self.RCTPointersDict removeObjectForKey:pointer];
   return data;
 }
+
+//- (NSObject*)getPointerValue:(NSString*)pointer usingBlock:(void (^)(NSObject *value))usingBlock {
+//  NSObject *data = [self.RCTPointersDict objectForKey:pointer];
+//  usingBlock(data)
+//  [self.RCTPointersDict removeObjectForKey:pointer];
+////  return data;
+//}
 
 - (void)dealloc {
   [[NSNotificationCenter defaultCenter] removeObserver:self];
